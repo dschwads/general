@@ -142,7 +142,7 @@ priorityClassName:
 
 ebpf:
   # Enable eBPF support for Sysdig Agent
-  enabled: true
+  enabled: false
 
   settings:
     # Needed to correctly detect the kernel version for the eBPF program
@@ -175,7 +175,7 @@ collectorSettings:
   sslVerifyCertificate:
 
 # Setting a cluster name allows you to filter events from this cluster using kubernetes.cluster.name
-clusterName: "povcluster"
+clusterName: "clustername"
 
 sysdig:
   # Required: You need your Sysdig Agent access key before running agents, either specifying 'accessKey' here, or using 'existingAccessKeySecret'
@@ -213,7 +213,7 @@ sysdig:
       max_tags_per_metric: 100
       ingest_raw: true
       ingest_calculated: false
-    collector: ingest-us2.app.sysdig.com
+    collector: ingest-us2.app.sysdig.com # Us2 example, see sysdig docs for other regions
     collector_port: 6443
     feature:
       mode: troubleshooting
@@ -311,7 +311,7 @@ nodeAnalyzer:
   # * SaaS US Web: us2.app.sysdig.com
   # * SaaS European Union: eu1.app.sysdig.com
   # * On-Prem: sysdig.my.company.com
-  apiEndpoint: "us2.app.sysdig.com"
+  apiEndpoint: "us2.app.sysdig.com" # Us2 example, see sysdig docs for other regions
 
   # Can be set to false to allow insecure connections to the Sysdig backend,
   # such as for on-premise installs that use self-signed certificates.
