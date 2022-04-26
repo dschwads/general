@@ -179,7 +179,7 @@ collectorSettings:
 clusterName: ""
 
 sysdig:
-  # Required: You need your Sysdig Agent access key before running agents, either specifying 'accessKey' here, or using 'existingAccessKeySecret'
+  # Required: Customer You need your Sysdig Agent access key before running agents, either specifying 'accessKey' here, or using 'existingAccessKeySecret'
   accessKey: ""
   # Alternatively, specify the name of a Kubernetes secret containing an 'access-key' entry
   existingAccessKeySecret: ""
@@ -188,7 +188,7 @@ sysdig:
   disableCaptures: false
 
   # Advanced settings. Any option in here will be directly translated into dragent.yaml in the Configmap
-  settings: {}
+  # settings: {}
     ### Example: Agent tags
     # tags: linux:ubuntu,dept:dev,local:nyc
     ### Example: Proxy configuration (see https://docs.sysdig.com/en/enable-http-proxy-for-agents.html)
@@ -197,6 +197,27 @@ sysdig:
     #   proxy_host: squid.yourdomain.com
     #   proxy_port: 3128
     #   ssl: false
+  settings:
+    k8s_extra_resources:
+      include:
+        - services
+        - resourcequotas
+        - persistentvolumes
+        - persistentvolumeclaims
+        - horizontalpodautoscalers
+    prometheus:
+      enabled: true
+      prom_service_discovery: true
+      log_errors: true
+      max_metrics: 10000
+      max_metrics_per_process: 10000
+      max_tags_per_metric: 100
+      ingest_raw: true
+      ingest_calculated: false
+    collector: ingest-us2.app.sysdig.com # Us2 example, see sysdig docs for other regions
+    collector_port: 6443
+    feature:
+      mode: troubleshooting
 
 secure:
   # true here enables Sysdig Secure: container run-time security & forensics
@@ -328,6 +349,7 @@ nodeAnalyzer:
   # * SaaS US Web: us2.app.sysdig.com
   # * SaaS European Union: eu1.app.sysdig.com
   # * On-Prem: sysdig.my.company.com
+  # Customer
   apiEndpoint: ""
 
   # Can be set to false to allow insecure connections to the Sysdig backend,
