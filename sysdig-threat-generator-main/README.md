@@ -52,7 +52,7 @@ A brief description of some tests and the related alert/purpose:
 |LOAD.BPF.PROG| Creates and then loads a BPF program into the kernel| BPFDoor
 |BASE64.CLI| Uses the base64 utility to decode some commands| Base64 on Command Line
 |Base64.SHELLSCRIPT| Uses the base64 utility to decode and write a shell script| Base64 Shell Script
-
+|CONNECT.UNEXPECTED| Creates a connection from an "unexpected" process, as if someone had pwned a server and hijacked control to their c2 server| 
 Runtime threat/threat actor behavior - LD.LINUX.EXEC, LOAD.BPF.PROG, RECON.FIND.SUID, BASE64.CLI
 
 Lateral movement/privesc/container escape - RECON.FIND.SUID, T1611.002
