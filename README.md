@@ -1,3 +1,0 @@
-# general
-This is a general distribution for me to get configs to customers...
-Oficial Sysdig documentation for helm charts are located here: https://github.com/sysdiglabs/charts/tree/master/charts
